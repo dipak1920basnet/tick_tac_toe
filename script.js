@@ -7,12 +7,25 @@ document.addEventListener('DOMContentLoaded', function(){
         element.addEventListener('click', function() {
             if (turn == 0)
             {
-                element.innerText = player_one.make_move()
-                turn = 1
+                if (element.innerText == "X" || element.innerText == "O")
+                {
+                    alert("Cannot bet on other poeple field press again");
+                }
+                else{
+                    element.innerText = player_one.make_move();
+                    turn = 1;
+                }
             }
             else{
-                element.innerText = player_two.make_move()
-                turn = 0
+                if (element.innerText == "X" || element.innerText == "O")
+                {
+                    alert("Cannot bet on other poeple field press again");
+                }
+                else
+                {
+                    element.innerText = player_two.make_move();
+                    turn = 0;
+                }
             }
             element.innerText = a;
         })
@@ -28,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
     player.prototype.make_move = function()
     {
-        return (this.marker)
+        return (this.marker);
     }
 
     player_one = new player("Dipak","X")
